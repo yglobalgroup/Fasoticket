@@ -1,0 +1,12 @@
+
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+RewriteCond %{HTTP_HOST} ^fasoticket.net [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.fasoticket.net$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
+DirectoryIndex index.php
+</IfModule>
+<FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
+SetHandler application/x-httpd-alt-php74___lsphp
+</FilesMatch>
